@@ -1,0 +1,339 @@
+@import "compass"
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,700")
+
+// Variables
+$content-padding: 20px
+$site-width: 800px
+$header-height: 100px
+$menu-height: 60px
+
+$green: #7BB52F
+$menu-background: #f1f1f1
+
+$primary-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+
+// Resets
++global-reset
+
+body
+  -webkit-font-smoothing: antiliased
+
+p
+  margin: 1em 0
+
+a
+  text-decoration: none
+  color: $green
+
+  &:hover
+    text-decoration: underline
+    color: $green
+
+// Layout
+.container
+  +pie-clearfix
+  position: relative
+  width: $site-width
+  margin: 0 auto
+
+.site-header
+  height: $header-height
+  padding-bottom: image-height("hump.png")
+  +background-image(image-url("hump.png"), linear-gradient(top, lighten($green, 2%) 0, darken($green, 5%) 100%))
+  background:
+    color: $green
+    repeat: repeat-x
+    position: 0 100%
+
+  h1  
+    padding: 0 0 0 70px
+    font:
+      size: 40px
+      family: $primary-font-family
+      weight: 700
+    line-height: $header-height + 10px
+    text-shadow: 0 1px 2px rgba(black, 0.2)
+    letter-spacing: 1px
+    background:
+      image: image-url("logo.png")
+      position: 0 10px
+      repeat: no-repeat
+      size: 64px
+    
+    > a
+      text-decoration: none
+      color: white
+
+.hero
+  +pie-clearfix
+  height: 350px
+  text-align: center
+  background:
+    color: $menu-background
+    image: image-url("hero-photo.jpg")
+    repeat: no-repeat
+    position: 50% 0
+
+  .box
+    position: absolute
+    top: 80px
+    left: 10%
+    right: 10%
+    background: rgba(black, 0.6)
+    padding: ($content-padding * 2) 0
+    +border-radius(10px)
+
+    > h1
+      margin: 0
+      font:
+        size: 40px
+        family: $primary-font-family
+        weight: 300
+      line-height: 1em
+      text-shadow: 0 1px 4px rgba(black, 0.6)
+      color: white
+
+    > p
+      margin: ($content-padding * 2) 0 0
+      > a
+        display: inline-block
+        height: 40px
+        padding: 0 30px
+        font:
+          size: 18px
+          family: $primary-font-family
+          weight: 400
+        line-height: 40px
+        text-decoration: none
+        text-transform: uppercase
+        text-shadow: 0 -1px 1px rgba(black, 0.2)
+        color: white
+        background-color: $green
+        +background-image(linear-gradient(top, $green 0, darken($green, 10%) 100%))
+        border:
+          width: 1px
+          style: solid
+          color: darken($green, 10%) darken($green, 15%) darken($green, 25%)
+        +border-radius(5px)
+        +box-shadow(inset 0 1px 0 rgba(white, 0.3))
+
+        &:hover
+          background-color: lighten($green, 3%)
+          +background-image(linear-gradient(top, lighten($green, 2%) 0, darken($green, 7%) 100%))
+
+.site-footer
+  +pie-clearfix
+  padding: $content-padding 0 ($content-padding * 3)
+  font:
+    size: 14px
+    family: $primary-font-family
+    weight: 400
+  line-height: 1.6em
+  background:
+    color: #efefef
+
+  .column-wrap
+    +pie-clearfix
+
+    .column
+      +box-sizing(border-box)
+      width: 50%
+      float: left
+
+      blockquote
+        padding: 10px 20px
+        background: rgba(black, 0.05)
+        +border-radius(5px)
+
+      .arrow
+        display: block
+        height: 1px
+        width: 0
+        margin: 0 0 0 80%
+        border:
+          width: 15px
+          style: solid
+          color: rgba(black, 0.05) transparent transparent
+
+      cite
+        display: block
+        margin: -10px 5% 0 0
+        text-align: right
+
+
+
+// Navigation
+nav[role="main"]
+  position: relative
+  z-index: 100
+  background-color: $menu-background
+  +background-image(linear-gradient(top, $menu-background 0, darken($menu-background, 4%) 100%))
+  +box-shadow(0 2px 1px rgba(black, 0.2))
+
+  ul
+    margin: 0
+    list-style: none
+
+    > li
+      display: inline
+
+      > a
+        display: inline-block
+        margin: 10px 0 15px
+        padding: 0 20px
+        font:
+          size: 16px
+          family: $primary-font-family
+          weight: 400
+        line-height: $menu-height - 30px
+        text-decoration: none
+        text-shadow: 0 1px 0 white
+        color: #888
+        +border-radius(15px)
+
+        &:hover
+          text-decoration: none
+          color: darken($green, 5%)
+
+        &:active
+          position: relative
+          top: 1px
+          background-color: rgba(black, 0.03)
+          +box-shadow(inset 0 1px 2px rgba(black, 0.2), 0 1px 0 white)
+
+      &.current_page_item > a
+        text-shadow: 0 -1px 1px rgba(black, 0.1)
+        color: white
+        background:
+          color: $green
+
+
+#footer-menu
+  +pie-clearfix
+  margin: 0
+  padding: $content-padding 0 0 0
+  text-align: center
+
+  ul
+    margin: 0
+    list-style: none
+
+    > li
+      display: inline
+      margin: 0 20px
+
+      > a
+        text-decoration: none
+        color: #888
+
+        &:hover
+          text-decoration: underline
+          color: #555
+
+
+
+// Page Title
+.page-title
+  margin: $content-padding 0 ($content-padding * 1.5)
+  font:
+    size: 40px
+    family: $primary-font-family
+    weight: 400
+  line-height: 1.2em
+
+
+// Articles
+.news
+  margin: 0 0 60px 0
+  padding: 0 0 40px 0
+  border:
+    width: 0 0 1px 0
+    style: solid
+    color: #dfdfdf
+
+  > header
+    +pie-clearfix
+    padding: 0 0 $content-padding 0
+    border:
+      width: 0 0 1px 0
+      style: dotted
+      color: #dfdfdf
+
+    > h1
+      margin: 0 0 $content-padding 0
+      font:
+        size: 22px
+        family: $primary-font-family
+        weight: 700
+      line-height: 1em
+
+      > a
+        text-decoration: none
+        color: black
+
+        &:hover
+          text-decoration: none
+          color: $green
+
+    > .meta
+      +pie-clearfix
+      
+      > span
+        +box-sizing(border-box)
+        display: block
+        width: 33%
+        min-height: 20px
+        float: left
+        padding-left: 22px
+        opacity: 0.7
+        font:
+          size: 12px
+          family: $primary-font-family
+          weight: 400
+        line-height: 18px
+        background:
+          position: 0 0
+          repeat: no-repeat
+
+        &.author
+          background:
+            image: inline-image("person-icon.png")
+
+        &.time
+          background:
+            image: inline-image("calendar-icon.png")
+
+        &.taxonomy
+          background:
+            image: inline-image("tags-icon.png")
+
+          a
+            color: black
+
+            &:hover
+              color: darken($green, 20%)
+
+  > .excerpt
+    margin: $content-padding 0
+    font:
+      size: 16px
+      family: $primary-font-family
+      weight: 400
+    line-height: 1.5em
+    p
+      margin: 0
+
+
+
+// Media Queries
+
+
+
+
+
+
+
+
+
+

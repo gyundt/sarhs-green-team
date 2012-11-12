@@ -1,0 +1,79 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= data.page.title %> | SARHS Green Team</title>
+  <%= stylesheet_link_tag "site" %>
+</head>
+<body class="<%= page_classes %> layout-default">
+
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="/">SARHS Green Team</a></h1>
+    </div>
+  </header>
+  <nav role="main">
+    <div class="container">
+      <ul>
+        <li<% if page_classes == "index" %> class="current_page_item"<% end %>><a href="/">News</a></li>
+        <!-- <li<% if page_classes == "initiatives" %> class="current_page_item"<% end %>><a href="/initiatives.html">Initiatives</a></li> -->
+        <li><a href="#">Initiatives</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Downloads</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <% if data.page.hero == true %>
+  <section class="hero">
+    <div class="container">
+      <div class="box">
+        <h1>Help us Help you Help us all</h1>
+        <p><a href="#">Join the Green Team</a></p>
+      </div><!-- /box -->
+    </div><!-- /container -->
+  </section>
+  <% end %>
+
+  <section class="contentwrapper">
+    <div class="container">
+      <h1 class="page-title"><%= data.page.title %></h1>
+      <%= yield %>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="column-wrap">
+        <div class="column">
+          &copy; <%= Time.now().strftime("%Y") %> St. Andrew&rsquo;s Regional High School.<br>
+          CSS3 is best stylesheet language.
+        </div>
+        <div class="column">
+          <blockquote>
+            Good morning, Twilight, love the new hairstyle. Well, happy Tuesday!
+          </blockquote>
+          <div class="arrow"></div>
+          <cite>Best Princess</cite>
+        </div>
+      </div><!-- /column-wrap -->
+
+      <nav id="footer-menu">
+        <div class="container">
+          <ul>
+            <li><a href="/">News</a></li>
+            <li><a href="/initiatives.html">Initiatives</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div><!-- /container -->
+  </footer>
+
+  <!-- <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" %> -->
+  <!-- <%= javascript_include_tag "site" %> -->
+
+</body>
+
